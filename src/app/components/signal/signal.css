@@ -1,0 +1,39 @@
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.course {
+    color: red;
+    font-weight: bold;
+}
+
+.course:hover {
+    color: orange;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.student {
+    color: blue;
+    font-style: italic;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.student:hover {
+    color: purple;
+    cursor: pointer;
+    transform: translateX(50px);
+}
+
+.data {
+    color: green;
+    text-decoration: underline;
+}
+
+.data:hover {
+    color: brown;
+    cursor: pointer;
+    transform: scale(1.1);
+}

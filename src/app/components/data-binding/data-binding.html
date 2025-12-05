@@ -1,0 +1,68 @@
+<p [class]="headerStyle">DATA BINDING TOPICS</p>
+<hr>
+<table>
+    <tbody>
+        <p [class]="headerStyle">Interpolation</p>
+        <tr>
+            <td>
+                <span>Course: {{courseName}}</span>
+            </td>
+            <td>
+                <span>{{city}}</span>
+            </td>
+        </tr>
+        <hr>
+        <p [class]="headerStyle">Property binding</p>
+        <tr>
+            <td>
+                <input type="text" [value]="courseName">
+            </td>
+            <td>
+                <p [class]="className">With a style.</p>
+            </td>
+            <td>
+                <p [class]="bold">This is a bold text</p>
+            </td>
+            <td>
+                <input [type]="inputType" [class]="inputClass">
+            </td>
+        </tr>
+        <hr>
+        <p [class]="headerStyle">Event binding</p>
+        <tr>
+            <td>
+                <button (click)="clickme()">click</button>
+            </td>
+            <td>
+                <select (change)="onStateChange()">
+                    <option>ONE</option>
+                    <option>TWO</option>
+                    <option>THREE</option>
+                    <option>FOUR</option>
+                </select>
+            </td>
+        </tr>
+        <hr>
+        <p [class]="headerStyle">Two way Binding</p>
+        <tr>
+            <td>
+                <input [(ngModel)]="name">
+                <p>Hello, {{ name }}!</p>
+            </td>
+            <td>
+                <input [(ngModel)]="city">
+                <p>Your city is {{ city }}.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="changeCourseName('Javascript')">
+                    Change to Javascript
+                </button>
+                <button (click)="changeCourseName('Python')">
+                    Change to Python
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

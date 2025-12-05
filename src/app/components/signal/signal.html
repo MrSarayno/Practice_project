@@ -1,0 +1,24 @@
+<p [class]="titleStyle">SIGNAL TOPICS</p>
+<hr>
+<div class="row">
+    <div class="col-3" [class]="infoStyle">
+        Course Name: {{courseName()}}
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <button (click)="changeCourseJava()">Change to Java</button>
+            <button (click)="changeCourseJavaScript()">Change to JavacScript</button>
+            <button (click)="changeCoursePython()">Change to Python</button>
+            <button (click)="changeCourseC()">Change to C++</button>
+        </div>
+    </div>
+    <hr>
+    <div [class]="studentStyle">
+        Student ID: {{studentNumber()}}
+    </div>
+    <hr>
+    <div class="col-3" [class]="dataStyle">
+        Student Info: {{student().name + ' | ' + student().age + ' | ' + student().course}}
+    </div>
+</div>
+<hr>

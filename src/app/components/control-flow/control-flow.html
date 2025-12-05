@@ -1,0 +1,50 @@
+<p [class]="titleStyle">CONTROL FLOW TOPICS</p>
+<div class="row">
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isOfferCodeAvailable"> Do you have offer code?
+    </div>
+    @if(isOfferCodeAvailable == true) {
+    <div class="col-2" [class]="offerStyle">
+        {{ isOfferCodeAvailable ? 'OFFER CODE' : '' }}
+        <input type="text" class="form-control" placeholder="Enter offer code">
+    </div>
+    }
+</div>
+<hr>
+<div class="row">
+    <div class="col-2">
+        @if(isSuccessDivVisible()) {
+        <div class="bg-success p-2">
+            SUCCESS
+        </div>
+        } @else {
+        <div class="bg-danger p-2">
+            ERROR
+        </div>
+        }
+    </div>
+    <div class="col-3">
+        @if(isSuccessDivVisible()) {
+            <button class="btn btn-success" (click)="toggleDivVisibility()">Toggle: On</button>
+        } @else {
+        <button class="btn btn-danger" (click)="toggleDivVisibility()">Toggle: Off</button>
+        }
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <input type="text" placeholder="Enter your Grade" [(ngModel)]="studentTotalMarks" class="form-control">
+    </div>
+    <div class="col-3">
+        @if(studentTotalMarks >= 95) {
+        <strong class="text-success">Student has A Grade</strong>
+        } @else if(studentTotalMarks >= 85) {
+        <strong class="text-primary">Student has B Grades</strong>
+        } @else if(studentTotalMarks >= 75) {
+        <strong class="text-warning">Student has C Grade</strong>
+        } @else {
+        <strong class="text-danger">Student Fails </strong>
+        }
+    </div>
+</div>
