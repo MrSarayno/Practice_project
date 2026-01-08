@@ -59,4 +59,30 @@ export class ControlFlow {
     '25% off on Home Appliances',
     '30% off on Furniture',
   ];
+
+  productList: string[] = [
+    'Laptop',
+    'Smartphone',
+    'Jeans',
+    'T-Shirt',
+    'Bread',
+    'Milk',
+    'Sofa',
+  ];
+
+  employeeList = [
+    { name: 'Alice', position: 'Developer', isActive: true },
+    { name: 'Bob', position: 'Designer', isActive: false },
+    { name: 'Charlie', position: 'Manager', isActive: true },
+    { name: 'Diana', position: 'Tester', isActive: false },
+    { name: 'Ethan', position: 'Support', isActive: true },
+    { name: 'Fiona', position: 'HR', isActive: true },
+    { name: 'George', position: 'Intern', isActive: false },
+    { name: 'Hannah', position: 'Consultant', isActive: true },
+  ];
+
+  toggleStatus(employee: any) {
+    employee.isActive = !employee.isActive;
+  }
+
 }

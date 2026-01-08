@@ -107,17 +107,17 @@
                 </strong>
             </div>
             <div class="col-6">
-            @if(studentTotalMarks >= 95) {
-            <strong class="text-success">Feedback: {{studentName}} Got a A Grade, Amazing!!</strong>
-            } @else if(studentTotalMarks >= 85) {
-            <strong class="text-primary">Feedback: {{studentName}} Got a B Grades, You did well. </strong>
-            } @else if(studentTotalMarks >= 75) {
-            <strong class="text-warning">Feedback: {{studentName}} Got a C Grade, Try to study more.</strong>
-            } @else if(studentTotalMarks == 0) {
-            <strong>Enter Details</strong>
-            } @else { <strong class="text-danger">{{studentName}} Fails</strong>
-            }
-        </div>
+                @if(studentTotalMarks >= 95) {
+                <strong class="text-success">Feedback: {{studentName}} Got a A Grade, Amazing!!</strong>
+                } @else if(studentTotalMarks >= 85) {
+                <strong class="text-primary">Feedback: {{studentName}} Got a B Grades, You did well. </strong>
+                } @else if(studentTotalMarks >= 75) {
+                <strong class="text-warning">Feedback: {{studentName}} Got a C Grade, Try to study more.</strong>
+                } @else if(studentTotalMarks == 0) {
+                <strong>Enter Details</strong>
+                } @else { <strong class="text-danger">{{studentName}} Fails</strong>
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -127,10 +127,54 @@
     <div class="col-3">
         <ul>
             @for (item of offerlist; track $index) {
-                <li>
+            <li>
                 {{ item }}
             </li>
             }
         </ul>
+    </div>
+    <div class="col-8">
+        @for (item of productList; track $index) {
+        <button class="btn btn-primary mx-2">{{item}}</button>
+        }
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>NO.</th>
+                    <th>NAME</th>
+                    <th>POSITION</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of employeeList; track $index) {
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.position }}</td>
+                    <td>
+                        @if (item.isActive) {
+                        <strong class="text-success">Active</strong>
+                        } @else {
+                        <strong class="text-danger">Not Active</strong>
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-sm" (click)="toggleStatus(item)">
+                            {{ item.isActive ? 'Deactivate' : 'Activate' }}
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
