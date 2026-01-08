@@ -4,7 +4,7 @@
         <input type="checkbox" [(ngModel)]="isOfferCodeAvailable"> Do you have offer code?
     </div>
     @if(isOfferCodeAvailable == true) {
-    <div class="col-2" [class]="offerStyle">
+    <div class="col-3" [class]="offerStyle">
         {{ isOfferCodeAvailable ? 'OFFER CODE' : '' }}
         <input type="text" class="form-control" placeholder="Enter offer code">
     </div>
@@ -25,26 +25,112 @@
     </div>
     <div class="col-3">
         @if(isSuccessDivVisible()) {
-            <button class="btn btn-success" (click)="toggleDivVisibility()">Toggle: On</button>
+        <button class="btn btn-success" (click)="toggleDivVisibility()">Toggle: Off</button>
         } @else {
-        <button class="btn btn-danger" (click)="toggleDivVisibility()">Toggle: Off</button>
+        <button class="btn btn-danger" (click)="toggleDivVisibility()">Toggle: On</button>
         }
     </div>
 </div>
 <hr>
+
+<div class="row">
+    <div class="col-auto" style="width: 12.4%;">
+        <strong>Student Name:</strong>
+    </div>
+    <div class="col-auto" style="width: 20%;">
+        <input type="text" placeholder="Enter Student Name" [(ngModel)]="studentName" class="form-control">
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-3 border">
+                <strong>
+                    SUBJECTS
+                </strong>
+            </div>
+            <div class="col-3 border">
+                <strong>
+                    GRADES
+                </strong>
+            </div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject1Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject1Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject2Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject2Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject3Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject3Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject4Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject4Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject5Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject5Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject6Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject6Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 7 -->
+        <div class="row">
+            <div class="col-3 border"><input type="text" [(ngModel)]="subject7Name" class="form-control"></div>
+            <div class="col-3 border"><input type="number" [(ngModel)]="subject7Marks" class="form-control"></div>
+        </div>
+
+        <!-- Row 8 -->
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-3 border">
+                <strong>
+                    Total: {{studentTotalMarks}}
+                </strong>
+            </div>
+            <div class="col-6">
+            @if(studentTotalMarks >= 95) {
+            <strong class="text-success">Feedback: {{studentName}} Got a A Grade, Amazing!!</strong>
+            } @else if(studentTotalMarks >= 85) {
+            <strong class="text-primary">Feedback: {{studentName}} Got a B Grades, You did well. </strong>
+            } @else if(studentTotalMarks >= 75) {
+            <strong class="text-warning">Feedback: {{studentName}} Got a C Grade, Try to study more.</strong>
+            } @else if(studentTotalMarks == 0) {
+            <strong>Enter Details</strong>
+            } @else { <strong class="text-danger">{{studentName}} Fails</strong>
+            }
+        </div>
+        </div>
+    </div>
+</div>
+
+<hr>
 <div class="row">
     <div class="col-3">
-        <input type="text" placeholder="Enter your Grade" [(ngModel)]="studentTotalMarks" class="form-control">
-    </div>
-    <div class="col-3">
-        @if(studentTotalMarks >= 95) {
-        <strong class="text-success">Student has A Grade</strong>
-        } @else if(studentTotalMarks >= 85) {
-        <strong class="text-primary">Student has B Grades</strong>
-        } @else if(studentTotalMarks >= 75) {
-        <strong class="text-warning">Student has C Grade</strong>
-        } @else {
-        <strong class="text-danger">Student Fails </strong>
-        }
+        <ul>
+            @for (item of offerlist; track $index) {
+                <li>
+                {{ item }}
+            </li>
+            }
+        </ul>
     </div>
 </div>

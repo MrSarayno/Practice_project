@@ -16,8 +16,9 @@ export class DataBinding {
   inputClass = 'design';
   headerStyle = 'title';
 
-  clickme() {
-    alert('Button Clicked!');
+  clickme(text: string) {
+    this.city = text;
+    alert('City changed to ' + this.city);
   }
 
   onStateChange() {

@@ -10,7 +10,7 @@ import { NotFound } from './components/not-found/not-found';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '',
+        redirectTo: 'control-flow',
         pathMatch: 'full'
     },
     {
