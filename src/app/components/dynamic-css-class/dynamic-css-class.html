@@ -1,1 +1,89 @@
-<p>dynamic-css-class works!</p>
+<div class="row">
+    <div [ngClass]="isSidePanel() == true?  'col-8' : 'col-12'">
+        <div class="card">
+            <div class="card-header bg-primary ">
+                <div class="row">
+                    <div class="col-8">
+                        List
+                    </div>
+                    <div class="col-4 text-end">
+                        <button class="btn btn-success" (click)="openSidePanel()">Open</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="p-4" [ngClass]="myClassName">
+                            Div 1
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" [(ngModel)]="myClassName">
+                    </div>
+                    <div class="col-3">
+                        <button class="btn" (click)="isActive = !isActive"
+                            [ngClass]="isActive == true ? 'btn-success' : 'btn-danger'">
+                            {{ isActive ? 'Actived' : 'Inactive' }}
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-8 d-flex flex-row gap-5">
+                        <p [ngClass]="ProductPrice < 500 ?'text-danger' : 'text-success'"> Price ${{ProductPrice}}</p>
+                        <input type="number" placeholder="Inpute Price" [(ngModel)]="ProductPrice">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (isSidePanel()) {
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-8">
+                        Form
+                    </div>
+                    <div class="col-4 text-end">
+                        <button class="btn btn-success" (click)="closeSidePanel()">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="p-4" [ngStyle]="{'background-Color' :divBackColor}">
+                            Change My Text Color
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" placeholder="Input Color" [(ngModel)]="divBackColor">
+                    </div>
+                    <div class="col-3 text-center" [ngStyle]="myCss">
+                        Div 55
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-3">
+                        <div [class]="'p-4 ' + myClassName">
+                            Div 1
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" [(ngModel)]="myClassName">
+                    </div>
+                    <div class="col-3">
+                        <button class="btn" (click)="isActive = !isActive"
+                            [ngClass]="isActive == true ? 'btn-success' : 'btn-danger'">
+                            {{ isActive ? 'Actived' : 'Inactive' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
