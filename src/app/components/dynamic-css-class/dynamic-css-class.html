@@ -7,7 +7,9 @@
                         List
                     </div>
                     <div class="col-4 text-end">
+                        @if (!isSidePanel()) {
                         <button class="btn btn-success" (click)="openSidePanel()">Open</button>
+                        }
                     </div>
                 </div>
             </div>
