@@ -1,3 +1,5 @@
+<p [class]="titleStyle">DYNAMIC CSS CLASS TOPICS</p>
+<hr>
 <div class="row">
     <div [ngClass]="isSidePanel() == true?  'col-8' : 'col-12'">
         <div class="card">
@@ -8,7 +10,7 @@
                     </div>
                     <div class="col-4 text-end">
                         @if (!isSidePanel()) {
-                        <button class="btn btn-success" (click)="openSidePanel()">Open</button>
+                        <button class="btn btn-success" (click)="openSidePanel()">Open Menu</button>
                         }
                     </div>
                 </div>
@@ -37,23 +39,7 @@
                         <input type="number" placeholder="Inpute Price" [(ngModel)]="ProductPrice">
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    @if (isSidePanel()) {
-    <div class="col-4">
-        <div class="card">
-            <div class="card-header bg-primary">
-                <div class="row">
-                    <div class="col-8">
-                        Form
-                    </div>
-                    <div class="col-4 text-end">
-                        <button class="btn btn-success" (click)="closeSidePanel()">Close</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
+                <hr>
                 <div class="row">
                     <div class="col-3">
                         <div class="p-4" [ngStyle]="{'background-Color' :divBackColor}">
@@ -87,5 +73,34 @@
             </div>
         </div>
     </div>
+    @if (isSidePanel()) {
+    <div class="col-4">
+        <div class="card border-0 shadow-lg h-100">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Menu</span>
+                <button class="btn btn-sm btn-light" (click)="closeSidePanel()">✕</button>
+            </div>
+
+            <div class="card-body p-0">
+                <div class="sidebar">
+                    <a routerLink="/control-flow" routerLinkActive="active">Control Flow</a>
+                    <a routerLink="/data-binding" routerLinkActive="active">Data Binding</a>
+                    <a routerLink="/dynamic-css-class" routerLinkActive="active">Dynamic CSS Class</a>
+                    <a routerLink="/reactive-user" routerLinkActive="active">Reactive Users</a>
+                    <a routerLink="/signal" routerLinkActive="active">Signal</a>
+                    <a routerLink="/user-master" routerLinkActive="active">Users</a>
+                    <a routerLink="/user-master">User Master</a>
+                    <a routerLink="/variables">Variables</a>
+                    <h4 class="text-center text-white mb-4">API CALL</h4>
+                    <a routerLink="/admin">Admin</a>
+                    <a routerLink="/attribute">Attribute</a>
+                    <a routerLink="/photos">Photos</a>
+                    <a routerLink="/user">User</a>
+                    <a routerLink="logout" class="logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     }
+
 </div>

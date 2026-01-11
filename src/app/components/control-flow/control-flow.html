@@ -1,4 +1,5 @@
 <p [class]="titleStyle">CONTROL FLOW TOPICS</p>
+<hr>
 <div class="row">
     <div class="col-3">
         <input type="checkbox" [(ngModel)]="isOfferCodeAvailable"> Do you have offer code?
@@ -168,7 +169,7 @@
                         }
                     </td>
                     <td>
-                        <button class="btn btn-sm" (click)="toggleStatus(item)">
+                        <button class="btn btn-sm" [ngClass]="item.isActive == true ? 'btn-danger' : 'btn-success'" (click)="toggleStatus(item)">
                             {{ item.isActive ? 'Deactivate' : 'Activate' }}
                         </button>
                     </td>
