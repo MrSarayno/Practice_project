@@ -1,30 +1,49 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-get-api',
-  imports: [],
+  standalone: true,
+  imports: [HttpClientModule],
   templateUrl: './get-api.html',
   styleUrl: './get-api.css',
 })
-export class GetAPI {
-
+export class GetAPI implements OnInit {
   userList: any[] = [];
   productList: any[] = [];
-  
-  constructor(private http: HttpClient) {
-  
+  rolesList: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.getRoles();
   }
 
-  getUsers() {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((result:any)   => {
+  getRoles(): void {
+    this.http.get<any>('https://dev-api.veenpos.com/api/v1/roles-permissions').subscribe({
+      next: (res) => {
+        this.rolesList = res.data ?? [];
+        console.log('Roles list:', this.rolesList);
+      },
+      error: (err) => console.error(err),
+    });
+  }
+
+  getPermissionEntries(permission: any): [string, string[]][] {
+    return permission ? Object.entries(permission) : [];
+  }
+
+  getUsers(): void {
+    this.http.get<any[]>('https://jsonplaceholder.typicode.com/users').subscribe((result) => {
       this.userList = result;
-    })
+    });
   }
 
-  getProducts() {
-    this.http.get('https://fake-store-api.mock.beeceptor.com/api/products').subscribe((result:any)   => {
-      this.productList = result;
-    })
+  getProducts(): void {
+    this.http
+      .get<any[]>('https://fake-store-api.mock.beeceptor.com/api/products')
+      .subscribe((result) => {
+        this.productList = result;
+      });
   }
 }

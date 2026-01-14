@@ -1,58 +1,113 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0">User Registration Form</h3>
-                </div>
-                <div class="card-body p-4">
-                    <form [formGroup]="userform">
-                        <!-- Name Field -->
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" formControlName="name" class="form-control"
-                                placeholder="Enter your name" />
-                            @if (userform.controls['name'].touched || userform.controls['name'].dirty) {
-                            <div class="text-danger">
-                                <!-- --{{name.errors | json}} -->
-                                @if (userform.controls['name'].errors?.['required']) {
-                                <span>This is required.</span>
-                                } @else if (userform.controls['name'].errors?.['minlength']) {
-                                <span>Min 5 character needed.</span>
-                                }
-                            </div>
-                            }
-                        </div>
-
-                        <!-- Username Field -->
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" formControlName="username" class="form-control" id="username"
-                                placeholder="Enter your username" />
-                        </div>
-
-                        <!-- Email Field -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" formControlName="email" class="form-control" id="email"
-                                placeholder="Enter your email" />
-                        </div>
-
-                        <!-- Password Field -->
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" formControlName="password" class="form-control" id="password"
-                                placeholder="Enter your password" />
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" [disabled]="userform.invalid" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">User Registration Form</h3>
         </div>
+        <div class="card-body p-4">
+          <form [formGroup]="userform">
+            <!-- Name Field -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                formControlName="name"
+                class="form-control"
+                placeholder="Enter your name"
+              />
+              @if (userform.controls['name'].touched || userform.controls['name'].dirty) {
+              <div class="text-danger">
+                <!-- --{{name.errors | json}} -->
+                @if (userform.controls['name'].errors?.['required']) {
+                <span>This is required.</span>
+                } @else if (userform.controls['name'].errors?.['pattern']) {
+                <span>Spaces are not allowed.</span>
+                } @else if (userform.controls['name'].errors?.['minlength']) {
+                <span>Min 8 character needed.</span>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Username Field -->
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                formControlName="username"
+                class="form-control"
+                id="username"
+                placeholder="Enter your username"
+              />
+              @if (userform.controls['username'].touched || userform.controls['username'].dirty) {
+              <div class="text-danger">
+                <!-- --{{name.errors | json}} -->
+                @if (userform.controls['username'].errors?.['required']) {
+                <span>This is required.</span>
+                } @else if (userform.controls['username'].errors?.['pattern']) {
+                <span>Spaces are not allowed.</span>
+                } @else if (userform.controls['username'].errors?.['minlength']) {
+                <span>Min 8 character needed.</span>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+              />
+              @if (userform.controls['email'].touched || userform.controls['email'].dirty) {
+              <div class="text-danger">
+                <!-- --{{name.errors | json}} -->
+                @if (userform.controls['email'].errors?.['required']) {
+                <span>This is required.</span>
+                } @else if (userform.controls['email'].errors?.['pattern']) {
+                <span>Invalid email address</span>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+              />
+              @if (userform.controls['password'].touched || userform.controls['password'].dirty) {
+              <div class="text-danger">
+                <!-- --{{name.errors | json}} -->
+                @if (userform.controls['password'].errors?.['required']) {
+                <span>This is required.</span>
+                } @else if (userform.controls['password'].errors?.['minlength']) {
+                <span>Min 6 character needed.</span>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="submit" [disabled]="userform.invalid" class="btn btn-primary">
+                Submit
+              </button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
