@@ -11,8 +11,7 @@ export class ReactiveUser {
   userform: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/^\S+$/),
+      Validators.minLength(8)
     ]),
     username: new FormControl('', [
       Validators.required,

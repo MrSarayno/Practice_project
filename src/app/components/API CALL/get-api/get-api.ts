@@ -1,10 +1,10 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-get-api',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [],
   templateUrl: './get-api.html',
   styleUrl: './get-api.css',
 })

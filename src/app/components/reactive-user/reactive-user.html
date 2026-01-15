@@ -21,8 +21,6 @@
                 <!-- --{{name.errors | json}} -->
                 @if (userform.controls['name'].errors?.['required']) {
                 <span>This is required.</span>
-                } @else if (userform.controls['name'].errors?.['pattern']) {
-                <span>Spaces are not allowed.</span>
                 } @else if (userform.controls['name'].errors?.['minlength']) {
                 <span>Min 8 character needed.</span>
                 }

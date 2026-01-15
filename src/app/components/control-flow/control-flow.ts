@@ -72,8 +72,8 @@ export class ControlFlow {
   ];
 
   employeeList = [
-    { name: 'Alice', position: 'Developer', isActive: true },
-    { name: 'Bob', position: 'Designer', isActive: false },
+    { name: 'Kate Anne', position: 'Developer', isActive: true },
+    { name: 'Niño', position: 'Designer', isActive: false },
     { name: 'Charlie', position: 'Manager', isActive: true },
     { name: 'Diana', position: 'Tester', isActive: false },
     { name: 'Ethan', position: 'Support', isActive: true },
